@@ -1,5 +1,11 @@
 Design a Traffic Controller System for a Junction
 
 Drivers can
-1. Follow traffic light
-2. 
+1. Join the crossroad
+2. Follow traffic light
+3. Leave the crossroad
+
+------------------------------------------------
+
+Class: Drivers
+State: DriverId, carPlate
