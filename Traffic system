@@ -7,15 +7,20 @@ Drivers can
 
 ------------------------------------------------
 Class Traffic Light
-Data: time, Staus//Green, Red
+Data: time, Staus//Green, Red//, EWsideLight, SNsideLight
 Behavior:
 changLight(String status, int time){
+    String EWsideLight, SNsideLight = new String;
     Status status;
     int time = 30s;
     for(int i = 0, i < 31, i++){
       if(i = 30s){
         Status = trafficLight.changeLight(status.green, status.red)
-  }
+        }
+     }
+        if(EWsideLight.status = green){
+                SNsideLight.status = red
+            }
 }
 ------------------------------------------------
 Class Police
@@ -30,7 +35,7 @@ getInformation(){
 
 -----------------------------------------------
 Class: Drivers
-Data: name, driverId, carPlate, carMakeAndModel
+Data: name, driverId, carPlate, carMakeAndModel, EWdriver, SNdriver
 Behaviors:
 stopVehicles(){
     boolean theVehicleIsStoppped = True;
@@ -38,7 +43,7 @@ stopVehicles(){
       return True;
       }else{
       return Drivers.Data to policeDatabase;
-  }
+           }
 }
 enterCrossroad(){
     if(theVehicleIsStoppped = 0){
@@ -54,7 +59,11 @@ leaveCrossroad(){
       }
       if(Status = Green && theVehicleIsStoppped = 1){
          return Drivers.Data to policeDatabase;
-          }   
+          }
+driverDirection(){
+    if(Drivers.EWdriver = theVehicleIsStoppped()){
+        Drivers.SNdriver = !theVehicleIsStoppped();
+    }
 }
 --------------------------------------------------
 Class: Pedestrian
