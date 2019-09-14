@@ -6,6 +6,69 @@ Drivers can
 3. Leave the crossroad
 
 ------------------------------------------------
+Class Traffic Light
+Data: time, Staus//Green, Red
+Behavior:
+changLight(String status, int time){
+    Status status;
+    int time = 30s;
+    for(int i = 0, i < 31, i++){
+      if(i = 30s){
+        Status = trafficLight.changeLight(status.green, status.red)
+  }
+}
+------------------------------------------------
+Class Police
+Data: policeDatabase
+Behavior:
+getInformation(){
+    String policeDatabase = new String;
+      if(Driver.Data = 1 ){
+          getInformation.policeDatabase = getInformation.policeDatabase + 1;
+  }
+}
 
+-----------------------------------------------
 Class: Drivers
-State: DriverId, carPlate
+Data: name, driverId, carPlate, carMakeAndModel
+Behaviors:
+stopVehicles(){
+    boolean theVehicleIsStoppped = True;
+    if(theVehicleIsStoppped = 1){
+      return True;
+      }else{
+      return Drivers.Data to policeDatabase;
+  }
+}
+enterCrossroad(){
+    if(theVehicleIsStoppped = 0){
+         return Drivers.Data to policeDatabase;
+    }
+      if(Status = Red && theVehicleIsStoppped = 0){
+         return Drivers.Data to policeDatabase;
+      }   
+}
+leaveCrossroad(){
+   if(theVehicleIsStoppped = 1){
+         return Drivers.Data to policeDatabase;
+      }
+      if(Status = Green && theVehicleIsStoppped = 1){
+         return Drivers.Data to policeDatabase;
+          }   
+}
+--------------------------------------------------
+Class: Pedestrian
+Data: name, waitTime
+Behavior:
+isItOkayToWalkNow(){
+  Boolean pedestrianWalks = True;
+  String name = new String;
+  int walkTime;
+  if(status = green){
+    walkTime = time;
+  }
+    if(Status = red && pedestrianWalks = 1){
+        return pedestrian.name to policeDatabase;
+  }
+}
+
