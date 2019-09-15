@@ -1,0 +1,82 @@
+Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
+
+User can
+1. Make payment(swipe card or cash or coins)
+2. Cancel payment
+3. Make selection of goods(food or drinks) 
+
+-------------------------------------------------------
+Class: User
+Data：moneyInput, goodId
+Behavior:
+makePayment(){
+    moneyInput = orderImplementation.acceptMoney();
+}
+cancelPayment(){
+    
+}
+orderSelection(){
+    goodsId = orderImplementation.(goodsId)
+}
+----------------------------------------------------------
+Class: vendingMachine
+Data: moneyCoin0.25, moneyCoin0.1, moneyCash$1, moneyCash$5, moneyCash$10, moneyAdoptor, goodsId
+Behavior:
+checkIfMoneyIsAllowed(){
+    int moneyAdoptor = 0
+    Boolean moneyIsAllowed = true
+    for(int i = 0, i < goods.price, i++){
+      if(user.moneyInput(i) = moneyCoin0.25 || moneyCoin0.1 || moneyCash$1 || moneyCash$5 || moneyCash$10){
+          moneyIsAllowed = true;
+          }else{
+          system.out.println("The monmey is not acceptable")
+          }
+          moneyAdoptor =  moneyAdoptor + i;
+          }
+}
+-----------------------------------------------------------
+Class: creditCardInformation
+Data: cardHolder, cardNumber, expireDate, cardCVV
+Behavior:
+isCardExpired(){
+    Date today = new Date();
+    if(today >= expireDate){
+        return ture;
+    }else{
+          return false;
+         }
+}
+-------------------------------------------------------------
+Class: Goods
+Data: price, goodsId, goodsNumber
+
+----------------------------------------------------------
+Class: orderImplementation
+Behavior:
+acceptMoney(){
+  if(vendingMachine.moneyIsAllowed = true && creditCardInformation.isCardExpired = 0){
+        moneyAdoptor.add();
+    }else{
+    return false;
+  
+  }
+Behavior:
+orderSelection(goodsId){
+     Goods goodsId
+     int payment
+     if(creditCardInformation.isCardExpired = 0 && moneyAdoptor >= goods.price){
+         return goods
+          }else if(goodsNumber = 0){
+          system.out.println("The goods you selected is sold out please make another selection");
+          }else{
+          system.out.println("We cannot process your order right now please check your card or money amount you put in")
+          }
+}
+Behavior:
+cancelPayment(){
+    if(orderImplementation.orderSelection = 1){
+      return false; //once the user enter the the goodsId, the vending machine will ship right after it, so there is no time left to cancel the order, thus you can only cancel order after the payment is made and before the goodsId is entered, which is exactly what a vending machine does.
+      }else{
+      Payment.refund(goodsId, price);
+      }
+}
