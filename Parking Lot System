@@ -2,9 +2,67 @@ Design a Parking lot
 
 Drivers can
 1. Get a parking permit
-2. Park a car
-3. Make a payment
+2. Make a payment
+3. Park a car
 4. Leave the parking lot
 --------------------------------------------
+Class: Drivers
+Data: name, driverId, carPlate, creditCardInformation
+Behavior:
+getPermit(){
+    parkingDetails = parkingService(driverId, parkingLot.spotsId)
+}
+makePayment(){
+    
+}
+----------------------------------------------
+Class: parkingMachine //The machine located at the gate of parking lot, it can charge money and show how many spots left in the parking lot. 
+Data: spotMonitor, gate
+Behavior:
+spotsDisplay(){
+    List(Spots) spot = parkingService(searchSpot)
+}
+-----------------------------------------------
+Class: Parking lot
+Data: price, spotsId, spotsNumber, soptsSize, parkingPermit
 
-
+----------------------------------------------
+Class: creditCardInformation
+Data: cardHolder, cardNumber, expireDate, cardCVV
+Behavior:
+isCardExpired(){
+    Date today = new Date();
+    if(today >= expireDate){
+        return ture;
+    }else{
+          return false;
+         }
+}
+-----------------------------------------------------
+Class: parkingService
+Behavior:
+spotsDisplay(){
+      List<Sports> availibleSpots
+      List<Sports> spots
+      for(int i = 0, i < parkingLot.spotsSize, i++){
+        Boolean isAvailible = true;
+        if(spotsNumber >= 0){
+          isAvailible = true;
+          availibleSpots.add(sports(i));
+          }else{
+          system.out.println("The parking lot is full");
+          }
+          return availibleSpots;
+}
+Behavior:
+getPermit(){
+    if(creditCardInformation.isCardExpired = 0 && availibleSpots != 0 ){
+        int price = parkingLot.price;
+        Payment.checkOut(driverId, carPlate, price)
+        return parkingLot.parkingPermit
+        parkingLot.gate = 1;
+        parkingLot.spotsNumber = parkingLot.spotsNumber - 1;
+     }else{
+        system.out.println("We cannot process your request at this time, please check your card information or parking spot information");
+       }
+}
