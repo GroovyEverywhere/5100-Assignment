@@ -1,0 +1,70 @@
+Design a Course Registration Platform
+
+User can
+1. Login
+2. Search courses based on parameters(semester, major)
+3. Add courses
+4. Drop courses
+
+----------------------------------------------------------
+Class: Student
+Data: name, studentId, courseSchedule
+Behavior: 
+searchCourses(searchParamters){
+      List <Courses> courses = registrationService(searchParamters);
+}
+Behavior:
+addCOurses(){
+    registarDetails = registrationService(courseId);
+}
+Behavior:
+dropCourses(){
+    registrationService.dropCourses(courseId)
+}
+---------------------------------------------------------
+Class: courseProfessors
+Data: professorId, professorEmail
+//each course has a professor and he teaches the entire section.
+
+Class: Courses
+Data: courseId, professorId, majorFieldId, startDate, endDate, size
+Behavior:
+checkCourseAvailability(date){
+  
+}
+----------------------------------------------------------------
+Class: registrationService
+Behavior:
+search(searchParamters){
+    List <Courses> availibleCourses
+    List <Courses> course
+    
+    Boolean isAvailable = true;
+    while(searchParamters.startDate.compareTo(searchParamters.endDate)){
+        if(courses.size == null){
+            isAvailable = false;
+            break;
+            }else{
+            course.availibleCourse++;
+            }
+            return availibleCourse;
+           }
+}
+Behavior:
+addCourses(courseId){
+    for(int i = 0, i< course.size, i++){
+       if(course.size !== null){
+          isAvailable = true;
+          student.courseSchedule.add(coursesId.get(i));
+          course.size = course.size - 1;
+          }else{
+          return false;
+          system.out.println("The course is closed.");
+          }
+        }
+}
+Behavior:
+dropCourses(courseId){
+      course.size = course.size + 1;
+      student.courseSchedule.del(coursesId);
+}
