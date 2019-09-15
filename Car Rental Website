@@ -5,3 +5,84 @@ User can
 2. Search cars
 3. Order cars
 4. Cancel orders
+
+------------------------------------------
+Class: User
+Data: userId, name, phoneNumber, creditCardInformation
+Behavior: 
+searchDesiredCars(carFeatures){
+    List <Cars> cars = rentalService.search(carFeatures);
+}
+Behavior: 
+orderDesiredCars(){
+    orderDetails = rentalService.orderCars(carID, carModel, startDate, endDate)
+}
+Behavior:
+cancelOrders(){
+    rentalService.cancelOrders(carId)
+}
+
+-----------------------------------------------------
+Class: creditCardInformation
+Data: cardHolder, cardNumber, expireDate, cardCVV
+Behavior:
+isCardExpired(){
+    Date today = new Date();
+    if(today >= expireDate){
+        return ture;
+    }else{
+          return false;
+         }
+}
+-------------------------------------------------------
+Class: carOwner
+Data: ownerId, name, address, plateNumber
+
+Class: Car
+Data: name, carId, ownerId, carModel, carPricePerDay, comments, ratingStars
+Behavior:
+checkCarAvailability(date){
+    
+}
+------------------------------------------------------
+
+Class: rentalService
+Behavior:
+search(carFeatures){
+    List <Car> availibleCars
+    Lsit <Cars> Car
+     Boolean carIsAvailible = True;
+     While(searchCarFeatures.startDate.compareTo(searchCarFeatures.endDate)){
+        if(!Cars.checkCarAvailability(startDate)){
+          carIsAvailible = False;
+          break;
+        }else{
+        searchCarFeatures.startDate++;
+        }
+        if(carIsAvailible = True && searchCarFeatures.date >= searchCarFeatures.startDate && Car.carPricePerDay <= searchCarFeature.maxPrice){
+          availibleCars.add(Cars(i));
+          }
+        }
+        return availibleCars;
+}
+Behavior: 
+orderCars(carId, startDate, endDate){
+      Cars car
+      int rentalDays = endDate - startDate;
+      if(creditCardInformation.isCardExpired = False){
+      int price = carPricePerDay * rentalDays;
+      Payment.checkOut(userId, price)
+        if(Payment.checkOut(userId, price) = True){
+            return orderDetails;
+            }
+         else{
+         system.out.println("Card is expired"); 
+         }
+       }
+}
+
+Behavior:
+cancelOrders(userId, carId, price){
+      Payment.refund(userId, price);
+      availibleCars.add(Cars(carId));
+}
