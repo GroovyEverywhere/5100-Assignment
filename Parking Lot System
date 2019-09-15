@@ -56,6 +56,7 @@ spotsDisplay(){
 }
 Behavior:
 getPermit(){
+    boolean parkingMachine.gate = false;
     if(creditCardInformation.isCardExpired = 0 && availibleSpots != 0 ){
         int price = parkingLot.price;
         Payment.checkOut(driverId, carPlate, price)
