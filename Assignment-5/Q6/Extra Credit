@@ -1,0 +1,14 @@
+We have a main function and there is "System.out.println(b.getAddCount()+b.getI());", thus we need to figure out the value of
+b.getAddCount()+b.getI() to answer this aquestion.
+
+First, we can handle b.getI(). Since class B is inherited from class A and there is no getI() method in class B, we can check class A to
+find answer. At the end of class A, we can find out that getI() will return the vlaue of i directly. The vlaue i is defined as "private
+int i = 0;", therefore, we can tell that b.getI() will return 0.
+
+Now we need to figure out b.getAddCount(). We can see from the code that getAddCount() method drive the data from addcount method, so we
+check the change of addCount(). We can draw the conclusion that addCount() is 3 for now since there is "addCount += c.size();" and the size
+of the given list is 3. Then it goes to "return super.addAll(c);", so we go to class A. In the addAll(c) function, it has this.add that 
+should call the add subclass in Class A, however, add() in class B override it. Therefore, addCount++ should add up 3 times. Thus, we finish
+the computation of b.getAddCount() which is 3+3 = 6.
+
+Thus, the value of b.getAddCount()+b.getI() is 6+0=6.
