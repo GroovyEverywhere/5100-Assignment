@@ -39,33 +39,55 @@ public class Dog extends Pet implements Boardable{
 		this.endYear = year;
 	 }
 	 boolean boarding(int month, int day, int year) {
-		 if(year > startYear && year < endYear) {
-			 return true;
-		 }
-		 else if(year == startYear) {
-			 if(month > startMonth && year < endMonth) {
+			 if(startYear == endYear && year == startYear) {
+				  if(startMonth == endMonth && month == startMonth) {
+					  if(day >= startDay &&  day <= endDay) {
+						  return true;
+					  }
+				  }
+				  else if(startMonth < endMonth && month == startMonth) {
+					  if(day >= startDay) {
+						  return true;
+					  }
+				  }
+				  else if(startMonth < endMonth && month == endMonth) {
+					  if(day <= endDay) {
+						  return true;
+					  }
+				  }
+				  else if(startMonth < month && month< endMonth  ) {
+					  return true;
+				  }
+			 }
+			 else if(startYear < endYear && year > startYear && year < endYear) {
 				 return true;
 			 }
-			 else if(month == startMonth) {
-				 if(day >= startDay &&  day <= endDay) {
+			 else if(startYear < endYear && year == startYear) {
+				 if(month == startMonth) {
+					 if(day >= startDay) {
+						  return true;
+					  }
+				 }
+				 else if(month > startMonth) {
 					 return true;
 				 }
 			 }
-		 }
-		 else if(year == endYear) {
-			 if(month > startMonth && year < endMonth) {
-				 return true;
-			 }
-			 else if(month == startMonth) {
-				 if(day >= startDay && day <= endDay) {
+			 else if(startYear < endYear && year == endYear) {
+				 if(month == endMonth) {
+					 if(day <= endDay) {
+						  return true;
+					  }
+				 }
+				 else if(month < endMonth) {
 					 return true;
 				 }
 			 }
+			 
+				 return false;
+			 
 		 }
 		 
-			 return false;
-		 
-	 }
+	 
 	
 	
 	public static void main(String args[]) {
