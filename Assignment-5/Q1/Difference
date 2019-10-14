@@ -1,0 +1,6 @@
+Q: Explain the difference between final and finally in Java 8.
+
+Ans: "final" is used to give a variable a special feature which is once the value is initialed to a variable, it cannot be changed. 
+Moreover, if a final variable is pointing to another object, thus, the path is fixed which means it will always point to that object.
+
+"Finally" is a key word that akways works with "try" and "catch" that it creates a block that will be implemented after try and catch.
