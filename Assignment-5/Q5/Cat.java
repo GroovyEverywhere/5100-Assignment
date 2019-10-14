@@ -38,27 +38,47 @@ public class Cat extends Pet implements Boardable{
 		this.endYear = year;
 	 }
 	 boolean boarding(int month, int day, int year) {
-		 if(year > startYear && year < endYear) {
+		 if(startYear == endYear && year == startYear) {
+			  if(startMonth == endMonth && month == startMonth) {
+				  if(day >= startDay &&  day <= endDay) {
+					  return true;
+				  }
+			  }
+			  else if(startMonth < endMonth && month == startMonth) {
+				  if(day >= startDay) {
+					  return true;
+				  }
+			  }
+			  else if(startMonth < endMonth && month == endMonth) {
+				  if(day <= endDay) {
+					  return true;
+				  }
+			  }
+			  else if(startMonth < month && month< endMonth  ) {
+				  return true;
+			  }
+		 }
+		 else if(startYear < endYear && year > startYear && year < endYear) {
 			 return true;
 		 }
-		 else if(year == startYear) {
-			 if(month > startMonth && year < endMonth) {
-				 return true;
+		 else if(startYear < endYear && year == startYear) {
+			 if(month == startMonth) {
+				 if(day >= startDay) {
+					  return true;
+				  }
 			 }
-			 else if(month == startMonth) {
-				 if(day >= startDay &&  day <= endDay) {
-					 return true;
-				 }
+			 else if(month > startMonth) {
+				 return true;
 			 }
 		 }
-		 else if(year == endYear) {
-			 if(month > startMonth && year < endMonth) {
-				 return true;
+		 else if(startYear < endYear && year == endYear) {
+			 if(month == endMonth) {
+				 if(day <= endDay) {
+					  return true;
+				  }
 			 }
-			 else if(month == startMonth) {
-				 if(day >= startDay && day <= endDay) {
-					 return true;
-				 }
+			 else if(month < endMonth) {
+				 return true;
 			 }
 		 }
 		 
@@ -70,9 +90,9 @@ public class Cat extends Pet implements Boardable{
 	public static void main(String args[]) {
 		Cat c = new Cat("Ted","Bruno","Black", "Short");
 		c.sex = FEMALE;
-		c.setBoardStart(10, 1, 2020);
-		c.setBoardEnd(10, 8, 2020);
+		c.setBoardStart(9, 5, 1999);
+		c.setBoardEnd(10, 1, 2009);
 		System.out.println(c);
-		System.out.println(c.boarding(10, 7, 2020));
+		System.out.println(c.boarding(5, 31, 2009));
 	}
 }
