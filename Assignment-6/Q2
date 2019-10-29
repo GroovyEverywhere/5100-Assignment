@@ -1,0 +1,6 @@
+Write two differences between ArrayList and LinkedList.
+
+Ans: ArrayList internally uses a dynamic array to store the elements while LinkedList internally uses a doubly linked list to store 
+the elements. Moreover, for ArrayList, since it uses array to operate, thus it has to shift all bits in the meomery. LinkedList will
+manipulate faster since it uses a doubly linked list, so no bit shifting is required in memory.
+     
